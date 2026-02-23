@@ -15,6 +15,7 @@
 3. Run `make init-db` to run the creation script for the tables in the database (Will drop and re-create each time)
 4. You can go to http://localhost:5555/docs to see the FastAPI swagger with all routes.
 5. Fill `file_path` with `data/data_1.csv`, then `data/data_2.xlsx`
+6. To access the database run with the variables you chose `psql "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@localhost:${POSTGRES_PORT}/${POSTGRES_DB}"`
 
 ## Done
 
@@ -29,13 +30,12 @@
 - FastAPI backbone with /root, /docs and /health endpoints
 - Settings for the API loaded from .env file 
 - Connector with the database
-- Read from CSV & excel
+- Read from CSV & excel in /upload
 
 ### Data
 - person: insert & deduplication & cleaning first_names + phone
 - organization: insert & deduplication
-- job: WIP for FK reading
-- 
+- job: FK reading linked to person and organization, casting of date
 
 ## To improve
 
@@ -55,5 +55,5 @@ in a file.
     - tests & coverage checking
     - image deployment to registry
 - DB migration system for database schemas creation and modification (`alembic`) and not a simple SQL script.
-- ORM (like sqlalchemy or SQLModel) to enforce database table models into code.
+- ORM (like sqlalchemy or SQLModel) to enforce database table models into code, and make it modulable by table. Also should be used to keep track of created_at, updated_at, deleted_at fields
 - Automated linter in pre-commit

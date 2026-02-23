@@ -22,7 +22,8 @@ CREATE TABLE IF NOT EXISTS person (
 CREATE TABLE IF NOT EXISTS organization (
     org_id SERIAL PRIMARY KEY,
     org_name VARCHAR(255) NOT NULL,
-    org_vivo_uri VARCHAR(255)
+    org_vivo_uri VARCHAR(255),
+    UNIQUE (org_name)
 );
 
 -- drop if exists and create mimics create if not exists for type
@@ -42,7 +43,7 @@ CREATE TABLE IF NOT EXISTS job (
     org_id INT REFERENCES organization(org_id) ON DELETE CASCADE,
     job_type VARCHAR NOT NULL,  -- TODO: go back to enum. Issue with insert
     job_title VARCHAR NOT NULL,
-    start_date DATE DEFAULT CURRENT_DATE
+    start_date DATE
 );
 
 COMMIT;
