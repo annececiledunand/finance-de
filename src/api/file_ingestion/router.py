@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from fastapi import APIRouter, Path as FastAPIPath, HTTPException
+from fastapi import APIRouter, Path as FastAPIPath, HTTPException, Query
 from fastapi.params import Depends, Annotated
 
 from src.api.config import APISettings, get_api_settings
@@ -17,7 +17,7 @@ file_ingestion_router = APIRouter()
     tags=["file_ingestion"],
 )
 def file_ingestion_endpoint(
-    file_path: str,
+    file_path: Annotated[str | None, Query(description="File path from root", example="data/data_1.csv")],
     settings: Annotated[APISettings, Depends(get_api_settings)],
 ) -> FileIngestionResponse:
     if not Path(file_path).exists():
