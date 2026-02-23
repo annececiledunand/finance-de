@@ -31,6 +31,7 @@
 - Settings for the API loaded from .env file 
 - Connector with the database
 - Read from CSV & excel in /upload
+- Insert into database & upsert table people & organisation, but no logging or chosen method implemented
 
 ### Data
 - person: insert & deduplication & cleaning first_names + phone
