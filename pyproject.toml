@@ -1,0 +1,27 @@
+[project]
+name = "finance-de"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "connectorx>=0.4.5",
+    "dotenv>=0.9.9",
+    "fastapi>=0.131.0",
+    "fastexcel>=0.19.0",
+    "loguru>=0.7.3",
+    "pandas>=3.0.1",
+    "polars>=1.38.1",
+    "psycopg2-binary>=2.9.11",
+    "pyarrow>=23.0.1",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.13.1",
+    "sqlalchemy>=2.0.46",
+    "uvicorn>=0.41.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "ruff>=0.15.2",
+]
